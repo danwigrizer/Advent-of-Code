@@ -1,0 +1,28 @@
+
+#
+# def main():
+#     one, two = 0, 0
+#     for i in open("AoC-02-Input", "r"):
+#         a, required_value, password = str.split(i)
+#         lo, hi = str.split(a, "-")
+#         one += 1 if int(lo) <= password.count(required_value[0]) <= int(hi) else 0
+#         two += 1 if [password[int(lo) - 1], password[int(hi) - 1]].count(required_value[0]) == 1 else 0
+#     print(two)
+# main()
+
+def main():
+    lines = open("AoC-02-Input", "r")
+    one, two = 0, 0
+    for line in lines:
+        a, required_value, password = str.split(line)
+        required_value = required_value[0]
+        lo, hi = map(int, str.split(a, "-"))
+        one += lo <= password.count(required_value) <= hi
+        two += sum(password[x-1] == required_value for x in [hi, lo]) == 1
+
+    print(one)
+    print(two)
+
+
+if __name__ == '__main__':
+    main()
