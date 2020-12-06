@@ -89,12 +89,3 @@ def data_two():
 data_two()
 
 
-def part_two(data):
-    count = 0
-    c = data
-    d = []
-    for passp in c:
-        if 'cid' in passp:
-            passp.remove('cid')
-        count += len(passp) == 7
-    print(count)
