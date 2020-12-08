@@ -1,6 +1,8 @@
 ## **Advent of Code**
 
-Beginner Python developer's solutions to AoC questions. I solve my solutions before viewing any external help, and will then review others afterwards. Any changes made to my original solutions are in a seperate file with the suffix '-clean'. 
+_Beginner Python developer's solutions to AoC questions._ 
+
+I solve my solutions before viewing any external help. After solving, I will review repo's with other solutions. Any changes made to my original solutions are in a seperate file with the suffix '-clean'. 
 
 Solutions to Advent of Code Problems:
 
