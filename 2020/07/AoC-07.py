@@ -1,16 +1,14 @@
 # Recursive solution.
+# Wanted to solve with regex rather than string location
 
 import re
 
-debug = False
-if debug == True:
-    data = open("AoC-07-Input-Test.txt", "r")
-else:
-    data = open("AoC-07-Input.txt", "r")
-
+data = open("AoC-07-Input.txt", "r")
 data_lines = [x.strip() for x in data.readlines()]
 
-# Part One
+# Answer to Part One.
+# Recursive count in find_colors()
+
 def data_p1():
     list = []
     dict_colors = {}
@@ -36,7 +34,10 @@ def part_one():
     part_one = len(set(gold))
     return (part_one)
 
-#Part two
+# Answers to part two
+# Challenged myself to find answers with regex
+
+# This just creates a new dictionary of the values to do the counting. Limiting to regex.
 def data_p2():
     list = []
     dict_colors_p2 = {}
@@ -48,8 +49,8 @@ def data_p2():
             if re.search('\d', tcolor):
                 color = str(re.search('\D\S.(\D+)', tcolor)[0])
                 bags = int(re.search('\d', tcolor)[0])
-                newv = (str(color.strip()+",") * bags).strip().split(",")
-                for x in newv:
+                all_colors = (str(color.strip()+",") * bags).strip().split(",")
+                for x in all_colors:
                     if x:
                         lt.append(x)
             ls.append(tcolor)
@@ -57,6 +58,7 @@ def data_p2():
             dict_colors_p2[ls[0]]=lt
     return(dict_colors_p2)
 
+# Counts Shiny Gold
 def find_color_values(color, dict_colors, ans):
     for main_color, subcolors in dict_colors.items():
         if main_color == color:
