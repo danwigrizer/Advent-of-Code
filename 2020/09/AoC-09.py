@@ -21,7 +21,6 @@ def part_one(values):
 def part_two(v, number):
 
     for i in range(len(v)):
-        # print(v[i])
         ans = v[i]
         ans_array = [v[i]]
         loc = i
@@ -30,9 +29,7 @@ def part_two(v, number):
                 loc += 1
                 ans += v[loc]
                 ans_array.append(v[loc])
-                # print(v[i], ans_array, ans)
                 if ans == number:
-                        #1212510616:
                     return (min(ans_array) + max(ans_array))
 
 
