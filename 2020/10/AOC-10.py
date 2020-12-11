@@ -14,14 +14,10 @@ def get_updated_list():
 
 def part_one(data):
     list_diff = []
-    new_list = []
     current_value = 0
-    total_paths = []
     for i in range(len(data)):
         next_values = [option for option in data if current_value+1 <= option <=  current_value+3]
         selection = min(next_values)
-        # if len(next_values) == 1:
-        #     total_paths.append(current_value)
         difference = selection - current_value
         current_value = selection
         list_diff.append(difference)
@@ -51,12 +47,8 @@ def find_split_points():
     s_2 = (data[spl[0]], data[spl[0]+1: spl[1]+1])
     s_3 = (data[spl[1]], data[spl[1]+1: spl[2]+1])
     s_4 = (data[spl[2]], data[spl[2]+1:])
-    # s_1 = (0,data[:46])
-    # s_2 = (data[45], data[46:78])
-    # s_3 = (data[77], data[78:])
     return [s_1,s_2,s_3,s_4]
 
-print(find_split_points())
 ls = 0
 def part_three(data, current_value, max):
     global ls
