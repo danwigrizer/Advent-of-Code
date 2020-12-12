@@ -1,7 +1,7 @@
 import math
 
 def get_data():
-    file = open("AoC-10-Input.txt", "r")
+    file = open("AoC-10-Input-Test.txt", "r")
     adapter_list = [int(x.strip()) for x in file.readlines()]
     return adapter_list
 
@@ -21,11 +21,6 @@ def part_one(data):
         difference = selection - current_value
         current_value = selection
         list_diff.append(difference)
-
-
-    one = list_diff.count(1)
-    three = list_diff.count(3)+1
-    answer = one * three
     return list_diff
 
 data = get_updated_list()
@@ -57,7 +52,27 @@ def part_three(data, current_value, max):
         if max in next_values:
             ls += 1
         part_three(data, x, max)
-    # print(ls)
+
+# stores our already seen values
+DP = {}
+data_s = get_updated_list()
+def dp(i):
+    if i == len(data_s) - 1:
+        return 1
+    if i in DP:
+        return DP[i]
+    ans = 0
+    for j in range(i+1,len(data_s)):
+        print(j)
+        if data_s[j] - data_s[i] <= 3:
+            # print(dp(j))
+            ans += dp(j)
+        print(DP)
+    DP[i] = ans
+    return ans
+
+print(dp(0))
+
 
 def get_part_two():
     list = find_split_points()
@@ -78,8 +93,8 @@ def final_values():
             answers.append(x - ans[idx-1])
     return math.prod(answers)
 
-print(final_values())
-print(part_one_answer())
+# print(final_values())
+# print(part_one_answer())
 
 """
 Question:
